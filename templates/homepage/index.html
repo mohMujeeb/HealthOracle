@@ -1,9 +1,8 @@
-﻿
-{% extends "basic.html" %}
+﻿{% extends "basic.html" %}
 {% load static %}
 
- 
-	{% block head %}
+
+{% block head %}
 
 
 {% endblock %}
@@ -14,112 +13,117 @@
 {% block body %}
 
 
-    
-<div class="jumbotron">
-    <h1 class="display-4">Be your own doctor...</h1>
-    <p class="lead">
-            It might have happened so many times that you or someone yours need doctor’s help immediately,
-             but they are not available due to some reasons.The Disease Prediction system is an end user
-              support and online consultation project. Here, we propose a web application that allow users 
-              to get instant guidance on their disease through an intelligent system. The application is 
-              fed with various details and the disease associated with those details.The application allows
-               user to share their disease related issues.It then processes user specific details to check 
-               for various illness that could be associated with it.Here we use some intelligent data mining
-                techniques to guess the most accurate illness that could be associated with patient’s details.
-                Based on result, patient can contact doctor accordingly for further treatment.
-    
-                
-  
-     {% if user.is_authenticated %}
 
-     
-     {% else %}
+<div class="jumbotron bg-light text-dark shadow-sm rounded">
+  <h1 class="display-4 font-weight-bold text-primary">Be your own doctor...</h1>
+  <p class="lead mt-3" style="line-height: 1.8; font-size: 1.2rem;">
+    It might have happened so many times that you or someone yours need doctor’s help immediately,
+    but they are not available due to some reasons.The Disease Prediction system is an end user
+    support and online consultation project. Here, we propose a web application that allow users
+    to get instant guidance on their disease through an intelligent system. The application is
+    fed with various details and the disease associated with those details.The application allows
+    user to share their disease related issues.It then processes user specific details to check
+    for various illness that could be associated with it.Here we use some intelligent data mining
+    techniques to guess the most accurate illness that could be associated with patient’s details.
+    Based on result, patient can contact doctor accordingly for further treatment.
 
-      <p class="lead">
-      <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target=".bd-example-modal-lg">Get started</button>
-      </p>
-    
+
+
+    {% if user.is_authenticated %}
+
+
+    {% else %}
+
+  <div class="text-center mt-4">
+    <button type="button" class="btn btn-primary btn-lg px-4 py-2 font-weight-bold shadow" data-toggle="modal"
+      data-target=".bd-example-modal-lg">Get started</button>
+  </div>
+
 
 </div>
 
 <br><br><br>
-<div class="container mt-5 mb-3" style="width:fit-content;">
-      <center>
-        <h1>Sign-In  As</h1>
-        </center>
-      
-      
-      <form>
-          <div class="container mt-5 mb-5">
-       <div class="row">
-          <div class="col">
-             <a href="{% url 'sign_in_admin' %}">
-      <img  alt="admin" src="{% static 'homepage/admin.png' %}"  class="img">
-      </a>
-          </div>
-      
-          <div class="col">
-      <a href="{% url 'sign_in_doctor' %}">
-      <img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
-      </a>
-          </div>
-      
-          <div class="col">
-      <a href="{% url 'sign_in_patient' %}">
-      <img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
-      </a>
-          </div>
-        </div>
-        </div>
-      </form>
-</div>
+<div class="container mt-5 mb-3 text-center">
+  <h1 class="font-weight-bold text-primary">Sign-In As</h1>
 
-
-    
-
-    {% endif %}
-
-<br><br>
-
-
-
-
-<!-- Large modal -->
-
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-   
-<center>
-  <h1>Sign-In  As</h1>
-  </center>
-<br><br>
-
-<center>
-<form>
+  <form>
     <div class="container mt-5 mb-5">
- <div class="row">
-    <div class="col">
-       <a href="{% url 'sign_in_admin' %}">
-<img  alt="admin" src="{% static 'homepage/admin.png' %}"  class="img">
-</a>
-    </div>
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <a href="{% url 'sign_in_admin' %}" class="d-block">
+            <img alt="Admin" src="{% static 'homepage/admin.png' %}" class="img rounded-circle shadow"
+              style="width: 150px; height: 150px;">
+            <h5 class="mt-3 text-dark font-weight-bold">Admin</h5>
+          </a>
+        </div>
 
-    <div class="col">
-<a href="{% url 'sign_in_doctor' %}">
-<img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
-</a>
-    </div>
+        <div class="col-md-4 text-center">
+          <a href="{% url 'sign_in_doctor' %}" class="d-block">
+            <img alt="Doctor" src="{% static 'homepage/doctor.png' %}" class="img rounded-circle shadow"
+              style="width: 150px; height: 150px;">
+            <h5 class="mt-3 text-dark font-weight-bold">Doctor</h5>
+          </a>
+        </div>
 
-    <div class="col">
-<a href="{% url 'sign_in_patient' %}">
-<img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
-</a>
+        <div class="col-md-4 text-center">
+          <a href="{% url 'sign_in_patient' %}" class="d-block">
+            <img alt="Patient" src="{% static 'homepage/patient.png' %}" class="img rounded-circle shadow"
+              style="width: 150px; height: 150px;">
+            <h5 class="mt-3 text-dark font-weight-bold">Patient</h5>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
-</form>
-</center>
+  </form>
+</div>
+
+
+
+
+{% endif %}
+
+<br><br>
+
+
+
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <center>
+        <h1>Sign-In As</h1>
+      </center>
+      <br><br>
+
+      <center>
+        <form>
+          <div class="container mt-5 mb-5">
+            <div class="row">
+              <div class="col">
+                <a href="{% url 'sign_in_admin' %}">
+                  <img alt="admin" src="{% static 'homepage/admin.png' %}" class="img">
+                </a>
+              </div>
+
+              <div class="col">
+                <a href="{% url 'sign_in_doctor' %}">
+                  <img alt="doctor" src="{% static 'homepage/doctor.png' %}" class="img">
+                </a>
+              </div>
+
+              <div class="col">
+                <a href="{% url 'sign_in_patient' %}">
+                  <img alt="patient" src="{% static 'homepage/patient.png' %}" class="img">
+                </a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </center>
 
     </div>
   </div>
@@ -133,35 +137,36 @@
 
 <!-- Large modal -->
 
-<div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-   
-<center>
-  <h1>Sign-Up  As</h1>
-  </center>
-<br><br>
 
-<center>
-<form>
-    <div class="container mt-5 mb-5 ml-5 mr-5">
- <div class="row">
+      <center>
+        <h1>Sign-Up As</h1>
+      </center>
+      <br><br>
 
-    <div class="col">
-<a href="{% url 'signup_doctor' %}">
-<img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
-</a>
-    </div>
+      <center>
+        <form>
+          <div class="container mt-5 mb-5 ml-5 mr-5">
+            <div class="row">
 
-    <div class="col">
-<a href="{% url 'signup_patient' %}">
-<img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
-</a>
-    </div>
-  </div>
-  </div>
-</form>
-</center>
+              <div class="col">
+                <a href="{% url 'signup_doctor' %}">
+                  <img alt="doctor" src="{% static 'homepage/doctor.png' %}" class="img">
+                </a>
+              </div>
+
+              <div class="col">
+                <a href="{% url 'signup_patient' %}">
+                  <img alt="patient" src="{% static 'homepage/patient.png' %}" class="img">
+                </a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </center>
 
     </div>
   </div>
@@ -172,8 +177,8 @@
 
 
 <br><br><br><br>
-<center><h2>Our Doctors</h2></center>
-<div class="row mt-5 mb-5">
+<!-- <center><h2>Our Doctors</h2></center> -->
+<!-- <div class="row mt-5 mb-5">
     <div class="col">
         <div class="card">
             <div class="card-body text-center">
@@ -204,12 +209,11 @@
             </div>
         </div>
     </div>
-</div>
-  
+</div> -->
+
 
 <br><br><br><br>
 
-        
 
 
 
@@ -222,31 +226,35 @@
 
 
 
-    <div id="footer" class="card bg-dark text-white">
-      <div class="card-body">
-        Contact-
-     
-    <ul >
-     
-      <li >
-        <h5 class="mb-1">Email: anujpradhan208@gmail.com</h5>
+
+<div id="footer" class="bg-dark text-white py-4 mt-5">
+  <div class="container text-center">
+    <h4 class="font-weight-bold mb-4">Contact Us</h4>
+    <ul class="list-unstyled mb-4">
+      <li>
+        <p class="mb-2">
+          <i class="fas fa-envelope mr-2"></i>Email: <a href="mailto:anujpradhan208@gmail.com" class="text-white">anujpradhan208@gmail.com</a>
+        </p>
       </li>
-      <li >
-        <h5 class="mb-1">Contact no. 9078166555</h5>
+      <li>
+        <p class="mb-2">
+          <i class="fas fa-phone mr-2"></i>Contact no: <a href="tel:9078166555" class="text-white">9078166555</a>
+        </p>
       </li>
-      <li >
-        <h5 class="mb-1">Address: CET, bbsr</h5>
-        <div class="footer-copyright text-center">© 2020 Copyright:
-          <a href="#"> Predico.com</a>
-        </div>
+      <li>
+        <p>
+          <i class="fas fa-map-marker-alt mr-2"></i>Address: CET, bbsr
+        </p>
       </li>
-      
     </ul>
+    <div class="footer-copyright">
+      <p class="mb-0">© 2020 Copyright: <a href="#" class="text-primary">Predico.com</a></p>
+    </div>
   </div>
-  </div>
+</div>
 
-  
- 
+
+
 
 
 
@@ -256,16 +264,19 @@
 
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  
-    
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
 
 
-    
+
+
+
 {% endblock %}

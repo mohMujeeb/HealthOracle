@@ -1,128 +1,169 @@
+{% extends "basic.html" %} {% load static %} {% block head %}
 
+<!--===============================================================================================-->
+<link
+  rel="icon"
+  type="image/png"
+  href="{% static 'signin_page/images/icons/favicon.ico' %}"
+/>
+<!--===============================================================================================-->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'signin_page/vendor/bootstrap/css/bootstrap.min.css' %}"
+/>
+<!--===============================================================================================-->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'signin_page/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}"
+/>
+<!--===============================================================================================-->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'signin_page/fonts/iconic/css/material-design-iconic-font.min.css' %}"
+/>
+<!--===============================================================================================-->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'signin_page/vendor/animate/animate.css' %}"
+/>
+<!--===============================================================================================-->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'signin_page/vendor/css-hamburgers/hamburgers.min.css' %}"
+/>
+<!--===============================================================================================-->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'signin_page/vendor/animsition/css/animsition.min.css' %}"
+/>
+<!--===============================================================================================-->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'signin_page/vendor/select2/select2.min.css' %}"
+/>
+<!--===============================================================================================-->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'signin_page/vendor/daterangepicker/daterangepicker.css' %}"
+/>
+<!--===============================================================================================-->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'signin_page/css/util.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'signin_page/css/main.css' %}"
+/>
+<!--===============================================================================================-->
 
-{% extends "basic.html" %}
-{% load static %}
+{% endblock %} {% block body %}
 
- 
-	{% block head %}
-	
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="{% static 'signin_page/images/icons/favicon.ico' %}"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'signin_page/vendor/bootstrap/css/bootstrap.min.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'signin_page/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'signin_page/fonts/iconic/css/material-design-iconic-font.min.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'signin_page/vendor/animate/animate.css' %}">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="{% static 'signin_page/vendor/css-hamburgers/hamburgers.min.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'signin_page/vendor/animsition/css/animsition.min.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'signin_page/vendor/select2/select2.min.css' %}">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="{% static 'signin_page/vendor/daterangepicker/daterangepicker.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'signin_page/css/util.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'signin_page/css/main.css' %}">
-<!--===============================================================================================-->
+<div class="limiter">
+	<div class="container-login100" style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f9f9f9;">
+	  <div class="wrap-login100" style="width: 360px; background: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 30px;">
+		<form class="login100-form validate-form" action="sign_in_doctor" method="POST">
+		  {% csrf_token %}
+  
+		  <h2 class="login100-form-title text-center mb-4" style="font-weight: bold; color: #333;">Sign in</h2>
+  
+		  <div class="text-center mb-3">
+			<button style="background: none; border: none; margin: 0 10px; cursor: pointer;">
+			  <i class="fab fa-facebook-f" style="font-size: 20px; color: #3b5998;"></i>
+			</button>
+			<button style="background: none; border: none; margin: 0 10px; cursor: pointer;">
+			  <i class="fab fa-google" style="font-size: 20px; color: #db4437;"></i>
+			</button>
+			<button style="background: none; border: none; margin: 0 10px; cursor: pointer;">
+			  <i class="fab fa-linkedin-in" style="font-size: 20px; color: #0077b5;"></i>
+			</button>
+		  </div>
+  
+		  <p class="text-center" style="color: #888; font-size: 14px; margin-bottom: 20px;">or use your account</p>
+  
+		  <div class="wrap-input100 mb-3" style="position: relative;">
+			<i class="fas fa-user" style="position: absolute; top: 12px; left: 10px; font-size: 18px; color: #888;"></i>
+			<input
+			  class="input100 form-control"
+			  type="text"
+			  name="username"
+			  placeholder="Username"
+			  style="height: 45px; border-radius: 5px; font-size: 14px; padding-left: 35px;"
+			  required
+			/>
+		  </div>
+		  
+		  <div class="wrap-input100 mb-3" style="position: relative;">
+			<i class="fas fa-lock" style="position: absolute; top: 12px; left: 10px; font-size: 18px; color: #888;"></i>
+			<input
+			  class="input100 form-control"
+			  type="password"
+			  name="password"
+			  placeholder="Password"
+			  style="height: 45px; border-radius: 5px; font-size: 14px; padding-left: 35px;"
+			  required
+			/>
+		  </div>
+  
+		  <div class="text-center mb-3">
+			<a href="#" style="font-size: 14px; color: #007bff;">Forgot your password?</a>
+		  </div>
+  
+		  <center>
+			<div>
+			  {% for message in messages %}
+			  <h3 style="color: red; font-size: 14px;">{{message}}</h3>
+			  {% endfor %}
+			</div>
+		  </center>
+  
+		  <div class="container-login100-form-btn">
+			<button
+			  class="btn btn-danger btn-block"
+			  style="height: 45px; border-radius: 5px; font-size: 14px; font-weight: bold; background-color: #ff5733; border: none; color: white; cursor: pointer;"
+			  type="submit"
+			>
+			  SIGN IN
+			</button>
+		  </div>
+  
+		  <div class="flex-col-c text-center mt-4">
+			<span style="font-size: 14px; color: #888;">Don't Have An Account?</span>
+			<a href="signup_doctor" style="font-size: 14px; color: #007bff; text-decoration: none; font-weight: bold;">Sign Up</a>
+		  </div>
+		</form>
+	  </div>
+	</div>
+  </div>
+  
 
+<div id="dropDownSelect1"></div>
 
+<!--===============================================================================================-->
+<script src="{% static 'signin_page/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'signin_page/vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'signin_page/vendor/bootstrap/js/popper.js' %}"></script>
+<script src="{% static 'signin_page/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'signin_page/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'signin_page/vendor/daterangepicker/moment.min.js' %}"></script>
+<script src="{% static 'signin_page/vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'signin_page/vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'signin_page/js/main.js' %}"></script>
 
 {% endblock %}
-
-
-
-
-{% block body %}
-
-
-	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-				<form class="login100-form validate-form" action="sign_in_doctor" method="POST" >
-					
-  {% csrf_token %}
-
-					<span class="login100-form-title p-b-49">
-						Login as Doctor
-					</span>
-
-					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
-						<span class="label-input100">Username</span>
-						<input class="input100" type="text" name="username" placeholder="Type your username" required>
-						<span class="focus-input100" data-symbol="&#xf206;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="password" placeholder="Type your password" required>
-						<span class="focus-input100" data-symbol="&#xf190;"></span>
-					</div>
-					
-					<div class="text-right p-t-8 p-b-31">
-						<a href="#">
-							Forgot password?
-						</a>
-					</div>
-					
-					<center>
-							<div>
-							  {% for message in messages %}
-							  <h3 style="color: red;">{{message}}</h3>
-							  {% endfor %}
-							</div>
-							</center>
-							<br>
-
-
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" type="submit">
-							Login	
-							</button>
-						</div>
-					</div>
-
-					
-					<div class="flex-col-c p-t-155">
-						<span class="txt1 p-b-17">
-							Don't Have An Account 
-						</span>
-
-						<a href="signup_doctor" class="txt2">
-							Sign Up
-						</a>
-					</div>
-					
-				</form>
-			</div>
-		</div>
-	</div>
-	
-
-	<div id="dropDownSelect1"></div>
-	
-<!--===============================================================================================-->
-	<script src="{% static 'signin_page/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'signin_page/vendor/animsition/js/animsition.min.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'signin_page/vendor/bootstrap/js/popper.js' %}"></script>
-	<script src="{% static 'signin_page/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'signin_page/vendor/select2/select2.min.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'signin_page/vendor/daterangepicker/moment.min.js' %}"></script>
-	<script src="{% static 'signin_page/vendor/daterangepicker/daterangepicker.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'signin_page/vendor/countdowntime/countdowntime.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'signin_page/js/main.js' %}"></script>
-
-
-	{% endblock %}
