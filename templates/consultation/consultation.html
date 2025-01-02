@@ -246,7 +246,7 @@ img{ max-width:100%;}
     {% endif %}
   <div class="container mt-4 ml-5 mr-5">
           <button type="button" class="btn btn-outline-danger mb-4" data-toggle="collapse" data-target="#demo2">Close Consultation</button>
-          <div id="demo2" class="collapse">Are you sure to close consultation ?
+          <div id="demo2" class="collapse">Are you sure to close consultation?
             <br>
 
             <form action="{% url 'close_consultation' consultation.id %}" method="POST"> 
@@ -269,8 +269,8 @@ img{ max-width:100%;}
     <div class="card mt-5 ml-5 mr-5 mb-5">
                    
         <div class="card-body">
-          <h4 class="card-title">Predicted disease : {{consultation.diseaseinfo.diseasename}}</h4>
-          <p class="card-text">list of symptoms - 
+          <h4 class="card-title">Predicted Disease : {{consultation.diseaseinfo.diseasename}}</h4>
+          <p class="card-text">List of Symptoms - 
 
               <ul class="list-group" >
                 {% for i in consultation.diseaseinfo.symptomsname %}
@@ -280,11 +280,11 @@ img{ max-width:100%;}
         
 
           </p>
-          <p class="card-text">confident score - {{consultation.diseaseinfo.confidence}} %</p>
-          <p class="card-text">Patient age - {{consultation.patient.age}}</p>
+          <p class="card-text">Confident Score - {{consultation.diseaseinfo.confidence}} %</p>
+          <p class="card-text">Patient Age - {{consultation.patient.age}}</p>
 
-          <p class="card-text">Consultation date - {{consultation.consultation_date}}</p>
-          <p class="card-text" style="color: green;">Consultation status - {{consultation.status}}</p>
+          <p class="card-text">Consultation Date - {{consultation.consultation_date}}</p>
+          <p class="card-text" style="color: green;">Consultation Status - {{consultation.status}}</p>
         </div>
     </div>
 
@@ -300,10 +300,10 @@ img{ max-width:100%;}
                                     <img class="card-img-top " src="{% static 'homepage/patient.png' %}" alt="Card image" style="width:100%;">
                                 </div>
                                 <div class="card-body">
-                                  <h4 class="card-title">Patient name : {{consultation.patient.name}}</h4>
+                                  <h4 class="card-title">Patient Name : {{consultation.patient.name}}</h4>
                                   <p class="card-text">Patient ID - {{consultation.patient.user_id}}</p>
-                                  <p class="card-text">Patient email - {{consultation.patient.user.email}}</p>
-                                  <p class="card-text">patient phone no. - {{consultation.patient.mobile_no}}</p>
+                                  <p class="card-text">Patient Email - {{consultation.patient.user.email}}</p>
+                                  <p class="card-text">Patient Phone No. - {{consultation.patient.mobile_no}}</p>
                                   <a href="{% url 'pviewprofile' consultation.patient.user.username %}" class="btn btn-primary">View Profile</a>
                                 </div>
                             </div>
@@ -314,10 +314,10 @@ img{ max-width:100%;}
                                             <img class="card-img-top" src="{% static 'homepage/doctor.png' %}" alt="Card image" style="width:100%;">
                                         </div>
                                         <div class="card-body" style="display: inline-block;">
-                                          <h4 class="card-title">Doctor name : {{consultation.doctor.name}}</h4>
+                                          <h4 class="card-title">Doctor Name : {{consultation.doctor.name}}</h4>
                                           <p class="card-text">Doctor ID - {{consultation.doctor.user_id}}</p>
-                                          <p class="card-text">Doctor email - {{consultation.doctor.user.email}}</p>
-                                          <p class="card-text">Doctor phone no. - {{consultation.doctor.mobile_no}}</p>
+                                          <p class="card-text">Doctor Email - {{consultation.doctor.user.email}}</p>
+                                          <p class="card-text">Doctor Phone No. - {{consultation.doctor.mobile_no}}</p>
                                           <p class="card-text">Doctor rating is - {{consultation.doctor.rating}}/5</p>
                                           <a href="{% url 'dviewprofile' consultation.doctor.user.username %}" class="btn btn-primary">View Profile</a>
                                         </div>

@@ -27,9 +27,9 @@
             <div class="card" style="width:350px">
                 <img class="card-img-top" src="{% static 'homepage/doctor.png' %}" alt="Card image" style="width:100%;">
                 <div class="card-body">
-                  <h4 class="card-title">Doctor name : {{user.doctor.name}}</h4>
-                  <p class="card-text">Doctor ID - {{user.doctor.user_id}}</p>
-                  <p class="card-text">Doctor email - {{user.email}}</p>
+                  <h4 class="card-title">Doctor Name : {{user.doctor.name}}</h4>
+                  <p class="card-text">Doctor ID : {{user.doctor.user_id}}</p>
+                  <p class="card-text">Doctor Email : {{user.email}}</p>
                   <a href="{% url 'dviewprofile' user.username %}" class="btn btn-primary">View Profile</a>
                 </div>
               </div>
@@ -40,12 +40,12 @@
         <div class="col" >
              
             <div class="row">
-             <a class="btn btn-outline-info btn-block" href="{% url 'dconsultation_history' %}">view consulation history</a><br>
+             <a class="btn btn-outline-info btn-block" href="{% url 'dconsultation_history' %}">View Consulation History</a><br>
              </div>
 
 
                 <div class="row">
-                    <button class="btn btn-outline-info btn-block" data-toggle="modal" data-target="#myModal-feedback">Give feedbacks </button><br>
+                    <button class="btn btn-outline-info btn-block" data-toggle="modal" data-target="#myModal-feedback">Give Feedbacks </button><br>
                     </div>
                    
     
@@ -64,7 +64,7 @@
             <div class="modal-body">
                 <form action="post_feedback" method="POST">   {% csrf_token %}
                   <div class="form-group">
-                    <label for="comment">Give feeback:</label>
+                    <label for="comment">Give Feedback:</label>
                     <textarea class="form-control" rows="5" id="feedback" name="feedback"></textarea>
                   </div>
                   

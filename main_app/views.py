@@ -158,9 +158,6 @@ def checkdisease(request):
         print(psymptoms)
 
       
-        """      #main code start from here...
-        """
-      
 
       
         testingsymptoms = []
@@ -183,19 +180,19 @@ def checkdisease(request):
       
 
         predicted = model.predict(inputtest)
-        print("predicted disease is : ")
+        print("Predicted Disease is : ")
         print(predicted)
 
         y_pred_2 = model.predict_proba(inputtest)
         confidencescore=y_pred_2.max() * 100
-        print(" confidence score of : = {0} ".format(confidencescore))
+        print(" Confidence Score of: = {0} ".format(confidencescore))
 
         confidencescore = format(confidencescore, '.0f')
         predicted_disease = predicted[0]
 
         
 
-        #consult_doctor codes----------
+        #Doctor Cosultation Code
 
         #   doctor_specialization = ["Rheumatologist","Cardiologist","ENT specialist","Orthopedist","Neurologist",
         #                             "Allergist/Immunologist","Urologist","Dermatologist","Gastroenterologist"]
@@ -226,7 +223,7 @@ def checkdisease(request):
         if predicted_disease in Rheumatologist :
            consultdoctor = "Rheumatologist"
            
-        if predicted_disease in Cardiologist :
+        elif predicted_disease in Cardiologist :
            consultdoctor = "Cardiologist"
            
 
@@ -261,7 +258,7 @@ def checkdisease(request):
         puser = User.objects.get(username=patientusername)
      
 
-        #saving to database.....................
+        #Saving to Database
 
         patient = puser.patient
         diseasename = predicted_disease
@@ -275,7 +272,7 @@ def checkdisease(request):
 
         request.session['diseaseinfo_id'] = diseaseinfo_new.id
 
-        print("disease record saved sucessfully.............................")
+        print("Disease Record Saved Sucessfully!")
 
         return JsonResponse({'predicteddisease': predicted_disease ,'confidencescore':confidencescore , "consultdoctor": consultdoctor})
    
